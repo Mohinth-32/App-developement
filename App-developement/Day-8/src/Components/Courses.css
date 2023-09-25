@@ -1,0 +1,16 @@
+/* Courses.css */
+
+/* Style for the Courses component container */
+.Courses {
+  background-color: #f0f0f0;
+  padding: 200px;
+  text-align: center;
+}
+
+/* Style for the h1 heading within the Courses component */
+.Courses h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Add more styles for the Courses component as needed */

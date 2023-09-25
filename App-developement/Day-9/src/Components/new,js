@@ -1,0 +1,41 @@
+// Travel.js
+import React, { useState } from 'react';
+import BudgetForm from './BudgetForm';
+import ExpenseForm from './ExpenseForm';
+import ExpenseList from './ExpenseList';
+import { Link } from 'react-router-dom';
+
+function Travel({ name }) {
+
+
+  const [budget, setBudget] = useState(0);
+  const [expenses, setExpenses] = useState([]);
+  
+
+  const handleBudgetSet = (newBudget) => {
+    setBudget(newBudget);
+  };
+
+  const handleExpenseAdd = (newExpense) => {
+    setExpenses([...expenses, newExpense]);
+  };
+
+  const calculateTotalExpenses = () => {
+    return expenses.reduce((total, expense) => total + expense.amount, 0);
+  };
+
+  return (
+    <div>
+      <h2>{name}</h2>
+      <BudgetForm onBudgetSet={handleBudgetSet} />
+      <ExpenseForm onExpenseAdd={handleExpenseAdd} />
+      <p>Total Budget: ${budget.toFixed(2)}</p>
+      <p>Total Expenses: ${calculateTotalExpenses().toFixed(2)}</p>
+      <p>Remaining Budget: ${(budget - calculateTotalExpenses()).toFixed(2)}</p>
+      
+      
+    </div>
+  );
+}
+
+export default Travel;
